@@ -1,4 +1,4 @@
-# https://octobercms.com/plugin/imbasynergy-octoberspa
+# https://octobercms.com/plugin/Integration-ImbaChat
 
 ## Plugin usage:
 Page:
