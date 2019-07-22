@@ -11,4 +11,4 @@ Page:
 Config:
 - `dev_id` - id developers.
 - `in_password` - password to form token. This parameter set on page admin.
-- `login` and `password` need set sthrough the colon in field `out_password`  on page admin
+- `login` and `password` need to set sthrough the colon in field `out_password`  on page admin
