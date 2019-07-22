@@ -1,0 +1,14 @@
+<script src="{{ url('/') }}/imbachat/v1/0/widget"></script>
+<script>
+    function imbachatWidget(){
+        if(!window.ImbaChat){
+            return setTimeout(imbachatWidget, 50);
+        }
+
+        window.ImbaChat.load({
+            user_id: {{__SELF__.property('user_id')}},
+            token: '{{__SELF__.getJWT()}}'
+        })
+    }
+    imbachatWidget();
+</script>

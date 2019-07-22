@@ -1,0 +1,6 @@
+plugin:
+    name: 'imbasynergy.integrationwidget::lang.plugin.name'
+    description: 'imbasynergy.integrationwidget::lang.plugin.description'
+    author: 'IMBA Synergy'
+    icon: oc-icon-level-down
+    homepage: ''
