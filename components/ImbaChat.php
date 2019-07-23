@@ -177,7 +177,7 @@ class ImbaChat extends \Cms\Classes\ComponentBase {
             ],
             'user_id' => [
                 'title' => 'User id',
-                'default' => Auth::getUser()->id
+                'default' => Auth::getUser() ? Auth::getUser()->id : 0
             ],
             'dev_id' => [
                 'title' => 'Developer id',
