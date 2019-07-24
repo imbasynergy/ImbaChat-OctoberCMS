@@ -1,4 +1,4 @@
-# https://octobercms.com/plugin/Integration-ImbaChat
+# https://octobercms.com/plugin/ImbaChat-OctoberCMS 
 
 ## Plugin usage:
 Page:
