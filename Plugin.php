@@ -14,7 +14,7 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'IntegrationImbachat',
+            'name'        => 'ImbaChat-widget',
             'description' => 'ImbaChat integration'
         ];
     }
