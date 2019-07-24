@@ -1,15 +1,12 @@
 {% if __SELF__.property('user_id') != 0 %}
-    <script src="{{ url('/') }}/imbachat/v1/0/widget"></script>
+    <script src="{{ url('/') }}/imbachat/v1/{{__SELF__.property('dev_id')}}/widget"></script>
     <script>
         function imbachatWidget(){
             if(!window.ImbaChat){
                 return setTimeout(imbachatWidget, 50);
             }
 
-            window.ImbaChat.load({
-                user_id: {{__SELF__.property('user_id')}},
-            token: '{{__SELF__.getJWT()}}'
-        })
+            window.ImbaChat.load({{__SELF__.getJsSettingsString()|raw}})
         }
         imbachatWidget();
     </script>
