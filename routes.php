@@ -1,5 +1,5 @@
 <?php
 
-Route::get('integrationwidget/apiChat/{ids}', 'ImbaSynergy\integrationwidget\Controllers\apiChat@getuser');
+Route::get('imbachat/api/v1/users/{ids}', 'ImbaSynergy\integrationwidget\Controllers\apiChat@getuser');
 
 ?>
