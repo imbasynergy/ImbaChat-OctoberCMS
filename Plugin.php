@@ -7,7 +7,7 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-        	'ImbaSynergy\integrationwidget\Components\ImbaChat' => 'ImbaChat'
+        	'ImbaSynergy\ImbaChat-widget\Components\ImbaChat' => 'ImbaChat'
         ];
     }
 
