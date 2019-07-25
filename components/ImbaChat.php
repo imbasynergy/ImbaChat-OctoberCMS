@@ -43,8 +43,8 @@ class ImbaChat extends \Cms\Classes\ComponentBase {
     public function getJWT()
     {
         $data = array();
-        $data['user_id'] = \Config::get('imbasynergy.integrationwidget::user_id');
-        $pass = \Config::get('imbasynergy.integrationwidget::in_password');
+        $data['user_id'] = \Config::get('imbasynergy.imbachatwidget::user_id');
+        $pass = \Config::get('imbasynergy.imbachatwidget::in_password');
         $header = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
 
         if(isset($data['user_id']))
@@ -67,7 +67,7 @@ class ImbaChat extends \Cms\Classes\ComponentBase {
             'theme' => [
                 'title' => 'Theme',
                 'type' => 'dropdown',
-                'default' => \Config::get('imbasynergy.integrationwidget::theme'),
+                'default' => \Config::get('imbasynergy.imbachatwidget::theme'),
                 'placeholder' => 'Select theme',
                 'options' => ['default' => 'Default theme', 'dark' => 'Dark theme'],
                 'showExternalParam' => false
@@ -75,7 +75,7 @@ class ImbaChat extends \Cms\Classes\ComponentBase {
             'position' => [
                 'title' => 'Messages window position',
                 'type' => 'dropdown',
-                'default' => \Config::get('imbasynergy.integrationwidget::position'),
+                'default' => \Config::get('imbasynergy.imbachatwidget::position'),
                 'placeholder' => 'Select position',
                 'options' => ['right' => 'Right', 'left' => 'Left'],
                 'showExternalParam' => false
@@ -83,7 +83,7 @@ class ImbaChat extends \Cms\Classes\ComponentBase {
             'language' => [
                 'title' => 'Language',
                 'type' => 'dropdown',
-                'default' => \Config::get('imbasynergy.integrationwidget::language'),
+                'default' => \Config::get('imbasynergy.imbachatwidget::language'),
                 'placeholder' => 'Select language',
                 'options' => ['eng' => 'eng'],
                 'showExternalParam' => false
@@ -91,25 +91,25 @@ class ImbaChat extends \Cms\Classes\ComponentBase {
             'resizable' => [
                 'title' => 'resizable',
                 'type' => 'checkbox',
-                'default' => \Config::get('imbasynergy.integrationwidget::resizable'),
+                'default' => \Config::get('imbasynergy.imbachatwidget::resizable'),
                 'showExternalParam' => false
             ],
             'draggable' => [
                 'title' => 'draggable',
                 'type' => 'checkbox',
-                'default' => \Config::get('imbasynergy.integrationwidget::draggable'),
+                'default' => \Config::get('imbasynergy.imbachatwidget::draggable'),
                 'showExternalParam' => false
             ],
             'useFaviconBadge' => [
                 'title' => 'useFaviconBadge',
                 'type' => 'checkbox',
-                'default' => \Config::get('imbasynergy.integrationwidget::useFaviconBadge'),
+                'default' => \Config::get('imbasynergy.imbachatwidget::useFaviconBadge'),
                 'showExternalParam' => false
             ],
             'updateTitle' => [
                 'title' => 'updateTitle',
                 'type' => 'checkbox',
-                'default' => \Config::get('imbasynergy.integrationwidget::updateTitle'),
+                'default' => \Config::get('imbasynergy.imbachatwidget::updateTitle'),
                 'showExternalParam' => false
             ],
             'user_id' => [
@@ -118,7 +118,7 @@ class ImbaChat extends \Cms\Classes\ComponentBase {
             ],
             'dev_id' => [
                 'title' => 'Developer id',
-                'default' => \Config::get('imbasynergy.integrationwidget::dev_id')
+                'default' => \Config::get('imbasynergy.imbachatwidget::dev_id')
             ]
         ];
     }
