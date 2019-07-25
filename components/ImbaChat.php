@@ -1,6 +1,6 @@
 <?php
 
-namespace ImbaSynergy\integrationwidget\Components;
+namespace ImbaSynergy\imbachatwidget\Components;
 
 class ImbaChat extends \Cms\Classes\ComponentBase {
 

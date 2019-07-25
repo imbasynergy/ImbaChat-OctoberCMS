@@ -1,4 +1,4 @@
-<?php namespace ImbaSynergy\Integrationwidget;
+<?php namespace ImbaSynergy\imbachatwidget;
 
 use System\Classes\PluginBase;
 
@@ -7,7 +7,7 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-        	'ImbaSynergy\ImbaChat-widget\Components\ImbaChat' => 'ImbaChat'
+        	'ImbaSynergy\imbachatwidget\Components\ImbaChat' => 'ImbaChat'
         ];
     }
 

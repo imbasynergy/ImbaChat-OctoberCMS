@@ -1,4 +1,4 @@
-<?php namespace ImbaSynergy\Integrationwidget\Controllers;
+<?php namespace ImbaSynergy\imbachatwidget\Controllers;
 
 use Backend\Classes\Controller;
 use BackendMenu;
@@ -15,8 +15,8 @@ class apiChat extends Controller
     }
 
     public function getUser($str_ids){
-        $login = \Config::get('imbasynergy.integrationwidget::login');
-        $password = \Config::get('imbasynergy.integrationwidget::password');
+        $login = \Config::get('imbasynergy.imbachatwidget::login');
+        $password = \Config::get('imbasynergy.imbachatwidget::password');
 
         if(!isset($_SERVER['PHP_AUTH_USER']) || ($_SERVER['PHP_AUTH_PW']!=$password) || strtolower($_SERVER['PHP_AUTH_USER'])!=$login)
         {
