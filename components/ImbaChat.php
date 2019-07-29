@@ -2,6 +2,8 @@
 
 namespace ImbaSynergy\imbachatwidget\Components;
 
+use ReallySimpleJWT\Token;
+
 class ImbaChat extends \Cms\Classes\ComponentBase {
 
     public function componentDetails() {
@@ -40,22 +42,36 @@ class ImbaChat extends \Cms\Classes\ComponentBase {
         // Итоговые настройки виджета
         return json_encode($extend_settings);
     }
-    public function getJWT()
+    function getJWT()
     {
-        $data = array();
-        $data['user_id'] = \Config::get('imbasynergy.imbachatwidget::user_id');
-        $pass = \Config::get('imbasynergy.imbachatwidget::in_password');
+// Create token header as a JSON string
         $header = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
+        $pass = \Config::get('imbasynergy.imbachatwidget::in_password');
+        $data = array();
+        $data['exp'] = (int)date('U')+3600*7;
+        $data['user_id'] = self::property('user_id');
 
         if(isset($data['user_id']))
         {
             $data['user_id'] = (int)$data['user_id'];
         }
+
+// Create token payload as a JSON string
         $payload = json_encode($data);
+
+// Encode Header to Base64Url String
         $base64UrlHeader = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($header));
+
+// Encode Payload to Base64Url String
         $base64UrlPayload = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($payload));
+
+// Create Signature Hash
         $signature = hash_hmac('sha256', $base64UrlHeader . "." . $base64UrlPayload, $pass, true);
+
+// Encode Signature to Base64Url String
         $base64UrlSignature = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($signature));
+
+// Create JWT
         return trim($base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature);
     }
     public function renderJsSettingsString() {
