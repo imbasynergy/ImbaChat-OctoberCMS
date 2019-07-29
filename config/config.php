@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'dev_id' => 26,
-    'in_password' => '1111',
+    'dev_id' => '',
+    'in_password' => '',
 
-    'login' => 'root',
-    'password' => 'abc'
+    'login' => '',
+    'password' => ''
 ];
