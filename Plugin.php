@@ -7,15 +7,16 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-        	'ImbaSynergy\imbachatwidget\Components\ImbaChat' => 'ImbaChat'
+            'ImbaSynergy\imbachatwidget\Components\ImbaChat' => 'ImbaChat'
         ];
     }
 
     public function pluginDetails()
     {
         return [
-            'name'        => 'ImbaChat-widget',
+            'name'        => 'ImbaChatWidget',
             'description' => 'ImbaChat integration'
         ];
     }
+
 }
