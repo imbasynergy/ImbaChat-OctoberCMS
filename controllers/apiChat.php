@@ -30,7 +30,9 @@ class apiChat extends Controller
         $ids = explode(",", $str_ids);
         $users = array();
         foreach ($ids as $id){
-            $user_m = User::where('id', $id)->get()[0];
+            $user_m = @User::where('id', $id)->get()[0];
+            if(!$user_m)
+                continue;
             $user = array();
             $user['name'] = $user_m->name;
             $user['user_id'] =  $user_m->id;

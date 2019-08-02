@@ -19,7 +19,7 @@ class ImbaChat extends \Cms\Classes\ComponentBase {
      */
     public function getJsSettingsString($opt = []) {
 
-        $user_id = self::property('user_id');
+        $user_id = \Auth::getUser()->id;
         $token = self::getJWT();
 
         $extend_settings = array_merge(
@@ -42,6 +42,9 @@ class ImbaChat extends \Cms\Classes\ComponentBase {
         // Итоговые настройки виджета
         return json_encode($extend_settings);
     }
+    public function getUserID(){
+        return \Auth::getUser() ? \Auth::getUser()->id : 0;
+    }
     function getJWT()
     {
 // Create token header as a JSON string
@@ -49,7 +52,7 @@ class ImbaChat extends \Cms\Classes\ComponentBase {
         $pass = \Config::get('imbasynergy.imbachatwidget::in_password');
         $data = array();
         $data['exp'] = (int)date('U')+3600*7;
-        $data['user_id'] = self::property('user_id');
+        $data['user_id'] = \Auth::getUser()->id;
 
         if(isset($data['user_id']))
         {
@@ -127,10 +130,6 @@ class ImbaChat extends \Cms\Classes\ComponentBase {
                 'type' => 'checkbox',
                 'default' => \Config::get('imbasynergy.imbachatwidget::updateTitle'),
                 'showExternalParam' => false
-            ],
-            'user_id' => [
-                'title' => 'User id',
-                'default' => \Auth::getUser() ? \Auth::getUser()->id : 0
             ],
             'dev_id' => [
                 'title' => 'Developer id',
