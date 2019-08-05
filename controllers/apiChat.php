@@ -15,10 +15,11 @@ class apiChat extends Controller
         parent::__construct();
     }
 
+    //Returns a list users by list ids
     public function getUser($str_ids){
         $login = \Config::get('imbasynergy.imbachatwidget::login');
         $password = \Config::get('imbasynergy.imbachatwidget::password');
-
+        //Authentication by developer login and password
         if(!isset($_SERVER['PHP_AUTH_USER']) || ($_SERVER['PHP_AUTH_PW']!=$password) || strtolower($_SERVER['PHP_AUTH_USER'])!=$login)
         {
             header('WWW-Authenticate: Basic realm="Backend"');
@@ -40,7 +41,20 @@ class apiChat extends Controller
         }
         return json_encode($users);
     }
+    
+    //Log in user via login and password
     public function authUser(){
+        $login = \Config::get('imbasynergy.imbachatwidget::login');
+        $password = \Config::get('imbasynergy.imbachatwidget::password');
+        //Authentication by developer login and password
+        if(!isset($_SERVER['PHP_AUTH_USER']) || ($_SERVER['PHP_AUTH_PW']!=$password) || strtolower($_SERVER['PHP_AUTH_USER'])!=$login)
+        {
+            header('WWW-Authenticate: Basic realm="Backend"');
+            header('HTTP/1.0 401 Unauthorized');
+            echo 'Authenticate required!';
+            die();
+        }
+
         try{
             $user_m = Auth::authenticate([
                 'login' => post('login'),
