@@ -5,6 +5,7 @@ use BackendMenu;
 use Auth;
 use RainLab\User\Models\User;
 use ImbaSynergy\imbachatwidget\Components\imbaChat;
+use ImbaSynergy\imbachatwidget\Models\Settings;
 
 class apiChat extends Controller
 {
@@ -15,11 +16,10 @@ class apiChat extends Controller
         parent::__construct();
     }
 
-    //Returns a list users by list ids
     public function getUser($str_ids){
-        $login = \Config::get('imbasynergy.imbachatwidget::login');
-        $password = \Config::get('imbasynergy.imbachatwidget::password');
-        //Authentication by developer login and password
+        $login = Settings::get('dev_login');
+        $password = Settings::get('dev_password');
+
         if(!isset($_SERVER['PHP_AUTH_USER']) || ($_SERVER['PHP_AUTH_PW']!=$password) || strtolower($_SERVER['PHP_AUTH_USER'])!=$login)
         {
             header('WWW-Authenticate: Basic realm="Backend"');
@@ -41,12 +41,10 @@ class apiChat extends Controller
         }
         return json_encode($users);
     }
-    
-    //Log in user via login and password
     public function authUser(){
-        $login = \Config::get('imbasynergy.imbachatwidget::login');
-        $password = \Config::get('imbasynergy.imbachatwidget::password');
-        //Authentication by developer login and password
+        $login = Settings::get('dev_login');
+        $password = Settings::get('dev_password');
+
         if(!isset($_SERVER['PHP_AUTH_USER']) || ($_SERVER['PHP_AUTH_PW']!=$password) || strtolower($_SERVER['PHP_AUTH_USER'])!=$login)
         {
             header('WWW-Authenticate: Basic realm="Backend"');
@@ -54,7 +52,6 @@ class apiChat extends Controller
             echo 'Authenticate required!';
             die();
         }
-
         try{
             $user_m = Auth::authenticate([
                 'login' => post('login'),
