@@ -28,9 +28,7 @@
 * Можно использовать на shared хостинге
 * Продолжает корректную работу даже без интернета (сообщения отправятся сразу после того как появится интернет)
 
-[![ImbaChat](https://imbachat.com/storage/docs/demo.gif "ImbaChat")](https://imbachat.com "ImbaChat") 
-
-
+[![Chat demo](http://imbachat.com/storage/app/uploads/public/docs/demo.gif "Chat demo")](https://imbachat.com "Chat demo")
 
 
 ## Шаги для установки виджета чата:
