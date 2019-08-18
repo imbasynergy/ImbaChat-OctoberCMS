@@ -1,6 +1,6 @@
 plugin:
     name: 'imbasynergy.imbachatwidget::lang.plugin.name'
     description: 'imbasynergy.imbachatwidget::lang.plugin.description'
-    author: 'IMBA Synergy'
+    author: 'ImbaSynergy'
     icon: oc-icon-level-down
-    homepage: ''
+    homepage: 'http://octobercms.imbachat.com'
