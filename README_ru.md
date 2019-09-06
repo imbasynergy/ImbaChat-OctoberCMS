@@ -7,9 +7,9 @@
 
 # Ссылки
 
-[Демо сайт](http://octobercms.imbachat.com/user)
+[Демо сайт](http://octobercms.imbachat.com)
 
-[Плагин для October cms](https://github.com/imbasynergy/ImbaChat-OctoberCMS)
+[Плагин для October cms](https://octobercms.com/plugin/imbasynergy-imbachatwidget)
 
 [Исходный код демо сайта](https://github.com/imbasynergy/ImbaChat-OctoberCMS-demo)
 
