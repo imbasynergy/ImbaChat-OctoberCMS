@@ -7,9 +7,9 @@ Allows you to add a chat widget for free between users of your site.
 
 # Links
 
-[Demo site](http://octobercms.imbachat.com/user)
+[Demo site](http://octobercms.imbachat.com)
 
-[Plugin for October cms](https://github.com/imbasynergy/ImbaChat-OctoberCMS)
+[Plugin for October cms](https://octobercms.com/plugin/imbasynergy-imbachatwidget)
 
 [Source code of the demo site](https://github.com/imbasynergy/ImbaChat-OctoberCMS-demo)
 
