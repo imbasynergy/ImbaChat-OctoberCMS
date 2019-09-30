@@ -5,14 +5,14 @@
 fields:
     dev_id:
         label: dev_id
-        default: ''
+        default: '12'
     dev_login:
         label: dev_login
-        default: ''
+        default: 'dev7160775'
     dev_password:
         label: dev_password
-        default: ''
+        default: 'tl819u6fhcjn9k7sorwyc'
     in_password:
         label: in_password
-        default: ''
+        default: 'fw380c8wgqwfcrw6t4q3m'
     
