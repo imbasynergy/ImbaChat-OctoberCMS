@@ -21,14 +21,18 @@ class apiChat extends Controller
     {
         $login = Settings::get('dev_login');
         $password = Settings::get('dev_password');
-
         if(!isset($_SERVER['PHP_AUTH_USER'])
                 || ($_SERVER['PHP_AUTH_PW']!=$password) 
                 || strtolower($_SERVER['PHP_AUTH_USER'])!=$login)
         {
             header('WWW-Authenticate: Basic realm="Backend"');
             header('HTTP/1.0 401 Unauthorized');
-            echo 'Authenticate required!';
+            echo json_encode([
+                "code" => 401,
+                "version" => $this->getApiVersion()['version'],
+                "error" => 'Authenticate required!',
+                'debug' => ''
+            ]);
             die();
         }
     }
@@ -84,8 +88,7 @@ class apiChat extends Controller
         $user['user_id'] =  $user_m['id'];
         return $user;
     }
-    
-    
+
     /**
      * API chat integration. 
      * Provides information about the users by search string 
@@ -94,7 +97,84 @@ class apiChat extends Controller
     public function usersSearch($key){
         $this->testAuthOrDie();
         //если поиск производиться через email
-        $users_m = User::whereRaw('name LIKE '.'"'.$key.'%"')->get();
+        $users_m = User::where('name', $key)->orWhere('name', 'like', '%'.$key.'%')->get();
+        $users = array();
+        $users['code'] = 200;
+        $users['version'] = $this->getApiVersion()['version'];
+        foreach ($users_m as $user_m) {
+            $user = array();
+            $user['name'] = $user_m['name'];
+            $user['user_id'] =  $user_m['id'];
+            $user['email'] =  $user_m['email'];
+            $users['data'][] = $user;
+        }
+        return $users;
+    }
+
+    /**
+     * API chat integration. 
+     * Provides information about api version
+     * @return array 
+     */
+    public function getApiVersion(){
+      
+        // $this->testAuthOrDie();
+        return [
+            "version" => 1.0,
+            "type" => "OctoberCMS plugin"
+        ];
+    }
+}
+ 
+            $user = [];
+            $user['name'] = $user_m->name;
+            $user['user_id'] =  $user_m->id; 
+            $users[] = $user;
+        }
+        
+        return $users;
+    }
+    
+    /**
+     * API chat integration. Provides information about the user by his login and password
+     * 
+     * @param string $str_ids
+     * @return array
+     */
+    public function authUser(){
+        
+        $this->testAuthOrDie();
+        
+        try{
+            $user_m = Auth::authenticate([
+                'login' => post('login'),
+                'password' => post('password')
+            ]);
+        }catch (\October\Rain\Auth\AuthException $e){
+            return [
+                "code" => 403,
+                "error" => 'Please enter a correct username and password. Note that both fields may be case-sensitive.',
+                'debug' => ''
+            ];
+        }
+        
+        $user = array();
+        $user['name'] = $user_m['name'];
+        $user['user_id'] =  $user_m['id'];
+        return $user;
+    }
+    
+    
+    /**
+     * API chat integration. 
+     * Provides information about the users by search string 
+     * @return array
+     */
+    public function usersSearch($key){
+        
+        $this->testAuthOrDie();
+        //если поиск производиться через email
+        $users_m = User::where('name', 'like', $key.'%')->get();
         $users = array();
         $users['code'] = 200;
         $users['version'] = 2;
@@ -111,10 +191,10 @@ class apiChat extends Controller
     /**
      * API chat integration. 
      * Provides information about api version
-     * @return array
+     * @return array 
      */
     public function getApiVersion(){
-        // ..
+      
         $this->testAuthOrDie();
         return [
             "version" => 1.0,
