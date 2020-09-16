@@ -4,14 +4,14 @@
 
 fields:
     dev_id:
-        label: dev_id
+        label: Widget id
         default: '276'
     dev_login:
-        label: dev_login
+        label: API login
         default: 'dev9299352'
     dev_password:
-        label: dev_password
+        label: API password
         default: 'ahxf5jju40kplc0ybyuk2h'
     in_password:
-        label: in_password
+        label: Secret ket
         default: 'ksd234hy0wq0o3n0onealqn'
