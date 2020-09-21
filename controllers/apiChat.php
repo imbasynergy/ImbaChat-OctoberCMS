@@ -53,7 +53,8 @@ class apiChat extends Controller
         foreach ($res as $user_m){ 
             $user = [];
             $user['name'] = $user_m->name;
-            $user['user_id'] =  $user_m->id; 
+            $user['user_id'] =  $user_m->id;
+            $user['user_mail'] = $user_m->email;
             $users[] = $user;
         }
         
