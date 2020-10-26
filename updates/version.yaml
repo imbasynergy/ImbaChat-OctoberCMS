@@ -2,3 +2,5 @@
     - Initialize plugin.
 1.0.2:
     - Set default settings for new users
+1.0.3:
+    - Widget for nonauth users
