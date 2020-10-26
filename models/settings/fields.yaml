@@ -13,5 +13,5 @@ fields:
         label: API password
         default: 'ahxf5jju40kplc0ybyuk2h'
     in_password:
-        label: Secret ket
+        label: Secret key
         default: 'ksd234hy0wq0o3n0onealqn'
